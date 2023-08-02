@@ -69,7 +69,7 @@ if($number>=20 && $number<=50){
 }
 echo "<br>";
 
-echo "<br>";
+
 
 // Question 7
 // $num1=1;
@@ -86,6 +86,7 @@ $nums = [1, 5, 9];
 rsort($nums);
 echo "$nums[0]";
 
+echo "<br>";
 // Question 8
 $unit=200;
 if($unit<=50){
@@ -157,6 +158,9 @@ switch($operation) {
     case "/":
         $ans = $num1 / $num2;
 }
+
+echo $ans;
+
 echo "<br>";
 // Question 12
 $grades = array(60, 86, 95, 63, 55, 74, 79, 62, 50);
