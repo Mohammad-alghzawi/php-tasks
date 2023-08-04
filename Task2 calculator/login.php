@@ -4,7 +4,7 @@
     <title>Login Page</title>
 </head>
 <body>
-    <h2>Login</h2>
+    <h2 class="color">Login</h2>
     <form action="processLogin.php" method="POST">
         
     <label for="email">email:</label>

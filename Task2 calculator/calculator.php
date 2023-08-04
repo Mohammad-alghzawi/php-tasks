@@ -3,15 +3,18 @@
 session_start();
 
 echo "<h2> Hello "  .$_SESSION["username"] ."</h2>";
+$answer=" ";
+if(isset($_GET["submit"]) ){
+$num1 = (int)($_GET["n1"]);
 
-$num1 = intval($_GET["n1"]);
-
-$num2 = intval($_GET["n2"]);
+$num2 = (int)($_GET["n2"]);
 
 $calc = $_GET["op"];
 
 
-$answer;
+
+
+
 
 switch($calc) {
     case "+":
@@ -30,7 +33,7 @@ switch($calc) {
         $answer = $num1 / $num2;
         break;
 }
-
+}
 ?>
 
 
@@ -58,7 +61,7 @@ switch($calc) {
     <label for="n2">Second Number</label>
     <input type="number" id="n2" name="n2">
     <br><br> 
-    <input type="submit">
+    <input type="submit" name="submit">
 </form>
 
 <?php echo "Answer: $answer" ?>

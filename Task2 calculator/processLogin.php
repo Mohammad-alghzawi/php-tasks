@@ -2,7 +2,7 @@
 session_start();
 
 $valid_email="moh@gmail.com";
-$valid_username="moh";
+$valid_username="mohammad";
 $valid_password="moh123";
 
 if(isset($_POST["email"]) && isset($_POST["username"]) && isset($_POST["password"])){
@@ -12,7 +12,7 @@ $username = $_POST["username"];
 $password = $_POST["password"];
 
 if($email == $valid_email && $username == $valid_username && $password == $valid_password){
-    $_SESSION["logged_in"] = true;
+    // $_SESSION["logged_in"] = true;
     $_SESSION["username"] = $username;
     header("Location: calculator.php");
 }
