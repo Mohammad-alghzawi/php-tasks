@@ -5,22 +5,23 @@ $username = "root"; // Default value
 $password = ""; // Default value
 $database = "myshop";
 
-
-
-$name = "";
-$email = "";
-$phone = "";
-$address = "";
+$connection = new mysqli($servername, $username, $password, $database);
 
 
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
+// $name = "";
+// $email = "";
+// $phone = "";
+// $address = "";
+
+
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST["name"];
     $email = $_POST["email"];
     $phone = $_POST["phone"];
     $address = $_POST["address"];
 
-    $connection = new mysqli($servername, $username, $password, $database);
 
 
     if (empty($name) || empty($email) || empty($phone) || empty($address)) {

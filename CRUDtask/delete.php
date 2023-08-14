@@ -1,5 +1,5 @@
 <?php 
-  if(isset ($_GET['id'])){
+  // if(isset ($_GET['id'])){
     $id=$_GET["id"]; 
 
     $servername = "localhost";
@@ -10,7 +10,7 @@
 
 $sql="DELETE FROM clients WHERE id= $id";
   $connection->query($sql);
-}
+// }
 header("Location: index.php");
 exit;
 

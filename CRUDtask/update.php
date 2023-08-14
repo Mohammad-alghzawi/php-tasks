@@ -6,29 +6,29 @@ $database = "myshop";
 $connection = new mysqli($servername, $username, $password, $database);
 
 
-$id="";
-$name = "";
-$email = "";
-$phone = "";
-$address = "";
+// $id="";
+// $name = "";
+// $email = "";
+// $phone = "";
+// $address = "";
 
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET'){
      
-    if(!isset ($_GET["id"])){
-        header("Location: index.php");
-        exit;
-    }
+    // if(!isset ($_GET["id"])){
+    //     header("Location: index.php");
+    //     exit;
+    // }
     $id=$_GET['id'];
     //READ THE ROW of the selected clients from database table
-    $sql = "SELECT * FROM clients  WHERE ID=$id";
+    $sql = "SELECT * FROM clients  WHERE id=$id";
             $result = $connection->query($sql);
             $row = $result->fetch_assoc();
-            if(!$row){
-                header("Location: index.php");
-                exit;
-            }
+            // if(!$row){
+            //     header("Location: index.php");
+            //     exit;
+            // }
             // $id=$_POST['id'];
             // $name = $_POST["name"];
             // $email = $_POST["email"];
