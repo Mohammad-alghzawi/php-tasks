@@ -11,15 +11,15 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="index.css">
+        <!-- <link rel="stylesheet" href="index.css"> -->
 </head>
 
 <body>
-<div class="container">
+    <center>
         <h2>List of Clinets</h2>
-        <a  href="creat.php"><button>Add new Clients</button></a> <br>
+        <a class="btn btn-warning" href="creat.php">Add new Clients</a> <br>
         <br>
-    </div>
+    </center>
     <table class="table">
         <thead>
             <tr>
@@ -58,8 +58,8 @@
             <td>$row[phone]</td>
             <td>$row[address]</td>
             <td>
-                <a class='btn' href='/myshop/update.php?id=$row[id]'>Update</a>
-                <a class='btn-del' href='/myshop/delete.php?id=$row[id]'>Delete</a>
+                <a class='btn btn-warning' href='update.php?id=$row[id]'>Update</a>
+                <a class='btn btn-danger' href='delete.php?id=$row[id]'>Delete</a>
                 
             </td>
         </tr>

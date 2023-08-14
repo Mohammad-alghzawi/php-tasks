@@ -25,21 +25,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
     }
     $id=$_GET['id'];
     //READ THE ROW of the selected clients from database table
-    $sql = "SELECT * FROM clients  WHERE ID=$ID";
+    $sql = "SELECT * FROM clients  WHERE ID=$id";
             $result = $connection->query($sql);
             $row = $result->fetch_assoc();
             if(!$row){
                 header("Location: index.php");
                 exit;
             }
-            $name = $_POST["name"];
-            $email = $_POST["email"];
-            $phone = $_POST["phone"];
-            $address = $_POST["address"];
+            // $id=$_POST['id'];
+            // $name = $_POST["name"];
+            // $email = $_POST["email"];
+            // $phone = $_POST["phone"];
+            // $address = $_POST["address"];
           
 }
 else{
-    //post method  , update the data of clients
+    // post method  , update the data of clients
     $id=$_POST['id'];
     $name = $_POST["name"];
     $email = $_POST["email"];
@@ -48,9 +49,7 @@ else{
 
     if (empty($name) || empty($email) || empty($phone) || empty($address)) {
     }
-    $sql="UPDATE clients".
-    "set name='$name',email='$email',phone='$phone',address='$address'".
-    "WHERE id=$id";
+    $sql="UPDATE clients set name='$name',email='$email',phone='$phone',address='$address' WHERE id=$id";
     $result = $connection->query($sql);
 
     header("Location: index.php");
@@ -75,19 +74,19 @@ else{
     <h2>Add clients</h2>
     <div>
         <form action="" method="POST">
-            <input type="hidden" name="id" value="<?php echo $id; ?>">
+            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
 
             <label for="">Name</label><br>
-            <input type="text" name="name" value="<?php echo $name; ?>"><br>
+            <input type="text" name="name" value="<?php echo $row['name']; ?>"><br>
 
             <label for="">Email</label><br>
-            <input type="email" name="email" value="<?php echo $email; ?>"><br>
+            <input type="email" name="email" value="<?php echo $row['email']; ?>"><br>
 
             <label for="">Phone</label><br>
-            <input type="text" name="phone" value="<?php echo $phone; ?>"><br>
+            <input type="text" name="phone" value="<?php echo $row['phone']; ?>"><br>
 
             <label for="">Address</label><br>
-            <input type="text" name="address" value="<?php echo $address; ?>"><br><br>
+            <input type="text" name="address" value="<?php echo $row['address']; ?>"><br><br>
 
             <button type="submit" name="submit">Submit</button>
         </form>
