@@ -6,9 +6,6 @@ $database = "myshop";
 $connection = new mysqli($servername, $username, $password, $database);
 
 
-
-
-
 $id="";
 $name = "";
 $email = "";

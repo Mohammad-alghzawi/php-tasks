@@ -52,16 +52,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
          
 
             <label for="">Name</label><br>
-            <input type="text" name="name" value="<?php echo $name; ?>"><br>
+            <input type="text" name="name" value="<?php echo $row['name']; ?>"><br>
 
             <label for="">Email</label><br>
-            <input type="email" name="email" value="<?php echo $email; ?>"><br>
+            <input type="email" name="email" value="<?php echo $row['email']; ?>"><br>
 
             <label for="">Phone</label><br>
-            <input type="text" name="phone" value="<?php echo $phone; ?>"><br>
+            <input type="text" name="phone" value="<?php echo $row['phone']; ?>"><br>
 
             <label for="">Address</label><br>
-            <input type="text" name="address" value="<?php echo $address; ?>"><br><br>
+            <input type="text" name="address" value="<?php echo $row['address']; ?>"><br><br>
 
             <button type="submit" name="submit">Submit</button>
         </form>

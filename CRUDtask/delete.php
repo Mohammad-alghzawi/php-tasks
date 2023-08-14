@@ -1,5 +1,5 @@
 <?php 
-  if(!isset ($_GET['id'])){
+  if(isset ($_GET['id'])){
     $id=$_GET["id"]; 
 
     $servername = "localhost";
@@ -8,8 +8,8 @@
     $database = "myshop";
     $connection = new mysqli($servername, $username, $password, $database);
 
-$sql="DELETE FROM clients WHERE id= '".$_GET["id"]."' ";
-  $result = $connection->query($sql);
+$sql="DELETE FROM clients WHERE id= $id";
+  $connection->query($sql);
 }
 header("Location: index.php");
 exit;
