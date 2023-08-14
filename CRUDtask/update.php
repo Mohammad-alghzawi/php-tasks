@@ -1,12 +1,15 @@
-
 <?php
 $servername = "localhost";
 $username = "root"; // Default value
 $password = ""; // Default value
 $database = "myshop";
+$connection = new mysqli($servername, $username, $password, $database);
 
 
 
+
+
+$id="";
 $name = "";
 $email = "";
 $phone = "";
@@ -14,27 +17,50 @@ $address = "";
 
 
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'GET'){
+     
+    if(!isset ($_GET["id"])){
+        header("Location: index.php");
+        exit;
+    }
+    $id=$_GET['id'];
+    //READ THE ROW of the selected clients from database table
+    $sql = "SELECT * FROM clients  WHERE ID=$ID";
+            $result = $connection->query($sql);
+            $row = $result->fetch_assoc();
+            if(!$row){
+                header("Location: index.php");
+                exit;
+            }
+            $name = $_POST["name"];
+            $email = $_POST["email"];
+            $phone = $_POST["phone"];
+            $address = $_POST["address"];
+          
+}
+else{
+    //post method  , update the data of clients
+    $id=$_POST['id'];
     $name = $_POST["name"];
     $email = $_POST["email"];
     $phone = $_POST["phone"];
     $address = $_POST["address"];
 
-    $connection = new mysqli($servername, $username, $password, $database);
-
-
     if (empty($name) || empty($email) || empty($phone) || empty($address)) {
-
     }
-
-    $sql = "INSERT INTO clients (name, email, phone, address) VALUES ('$name', '$email', '$phone','$address')";
+    $sql="UPDATE clients".
+    "set name='$name',email='$email',phone='$phone',address='$address'".
+    "WHERE id=$id";
     $result = $connection->query($sql);
-    header("Location: index.php");
-    exit();
 
+    header("Location: index.php");
+    exit;
+    // if(!$result){
+    // }
 
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
     <h2>Add clients</h2>
     <div>
         <form action="" method="POST">
-         
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
 
             <label for="">Name</label><br>
             <input type="text" name="name" value="<?php echo $name; ?>"><br>

@@ -17,7 +17,7 @@
 <body>
 <div class="container">
         <h2>List of Clinets</h2>
-        <a class="btn" href="creat.php"><button>Add new Clients</button></a> <br>
+        <a  href="creat.php"><button>Add new Clients</button></a> <br>
         <br>
     </div>
     <table class="table">

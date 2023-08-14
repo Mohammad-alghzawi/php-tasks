@@ -1,13 +1,16 @@
-/* .btn{
+.btn{
     border: 1px blue solid;
     background-color: blue;
     border-radius: 5px;
     color: black;
-} */
-/* .btn-del{
+}
+.btn-del{
     border: 1px red solid;
     background-color: red;
     border-radius: 5px;
     color: black;
    
-} */
+}
+.container button{
+    background-color: blue;
+}
